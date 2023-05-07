@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
+
+.Ubuntu{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+
+.UbuntuMedium{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+
+.UbuntuBold{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
