@@ -3,23 +3,28 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
+import CharacterChoose from "./components/characterChoose";
+import { useState } from "react";
+
 const Home: NextPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Honkai: Star Rail - Mini Lab</title>
-        <meta name="description" content="Honkai: Star Rail Mini Labserves as a streamlined and user-friendly web application designed to facilitate access to essential data pertaining to fundamental statistics, Eidolons, Abilities, level up prioritization, and team-related details of a character within the Honkai: Star Rail game." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <h1 className={styles.title}>
-            Create <span className="text-[#616161]">T3</span> App
-          </h1>
-        </div>
-      </main>
-    </>
-  );
+    const [c, setC] = useState<string | null>(null);
+    return (
+        <>
+            <Head>
+                <title>Honkai: Star Rail - Mini Lab</title>
+                <meta
+                    name="description"
+                    content="Honkai: Star Rail Mini Labserves as a streamlined and user-friendly web application designed to facilitate access to essential data pertaining to fundamental statistics, Eidolons, Abilities, level up prioritization, and team-related details of a character within the Honkai: Star Rail game."
+                />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div>
+                <div className="max-w-[1080px] mx-auto mt-[100px]">
+                    <CharacterChoose c={c} setC={setC}/>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Home;
