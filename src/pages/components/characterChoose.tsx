@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Input,Divider } from "antd";
+import { Input, Divider } from "antd";
 import { AudioOutlined } from "@ant-design/icons";
 
 import { dataIndex } from "./data/index";
@@ -10,6 +10,23 @@ interface ChooseProps {
     c: string | null;
     setC: (c: string | null) => void;
 }
+
+const container = {
+    visible: {
+        transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
+        },
+    },
+};
+
+const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+    },
+};
 
 const CharacterChoose = (props: ChooseProps) => {
     const [dataShow, setDataShow] = useState(dataIndex);
@@ -31,37 +48,41 @@ const CharacterChoose = (props: ChooseProps) => {
                     style={{ width: 200 }}
                 />
             </div>
-            <Divider/>
-            <div className="flex flex-wrap justify-center px-[10px]">
-                {dataShow.map((character) => {
-                    return (
-                        <motion.div
-                            className="w-[100px] h-[142px]"
-                            key={character.name}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => {
-                                props.setC(character.name);
-                            }}
+            <Divider />
+            <motion.ul
+                className="flex flex-wrap justify-center px-[10px]"
+                variants={container}
+                initial="hidden"
+                animate="visible"
+            >
+                {dataShow.map((character) => (
+                    <motion.li
+                        className="w-[80px] h-[113px] sm:w-[100px] sm:h-[142px]"
+                        key={character.name}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => {
+                            props.setC(character.name);
+                        }}
+                        variants={item}
+                    >
+                        <img
+                            className={`w-[64px] sm:w-[80px] mx-auto ${
+                                props.c == character.name ? "opacity-100" : "opacity-30"
+                            }`}
+                            src={character.img}
+                            alt={character.name}
+                        />
+                        <p
+                            className={`mt-[10px] block w-full text-center UbuntuMedium ${
+                                props.c == character.name ? "UbuntuBold" : "UbuntuMedium"
+                            }`}
                         >
-                            <img
-                                className={`w-[80px] mx-auto ${
-                                    props.c == character.name ? "opacity-100" : "opacity-30"
-                                }`}
-                                src={character.img}
-                                alt={character.name}
-                            />
-                            <p
-                                className={`mt-[10px] block w-full text-center UbuntuMedium ${
-                                    props.c == character.name ? "UbuntuBold" : "UbuntuMedium"
-                                }`}
-                            >
-                                {character.name}
-                            </p>
-                        </motion.div>
-                    );
-                })}
-            </div>
+                            {character.name}
+                        </p>
+                    </motion.li>
+                ))}
+            </motion.ul>
         </>
     );
 };
