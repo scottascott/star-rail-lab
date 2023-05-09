@@ -4,12 +4,19 @@ import { ConfigProvider } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import CharacterChoose from "./components/characterChoose";
+import CharacterShow from "./components/characterShow";
 import Logo from "./components/logo";
 
 const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
+    const router = useRouter();
+    const setCAndRoll = (c: string | null) => {
+        setC(c);
+        router.push("/#detail_info");
+    };
     return (
         <ConfigProvider
             theme={{
@@ -26,11 +33,12 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="max-w-[1080px] mx-auto pt-[30px]">
+            <div className="max-w-[1080px] mx-auto pt-[30px] scroll-smooth">
                 <div className="pl-[20px] sm:pl-0 relative w-full">
                     <Logo />
                 </div>
-                <CharacterChoose c={c} setC={setC} />
+                <CharacterChoose c={c} setC={setCAndRoll} />
+                <CharacterShow c={c} setC={setCAndRoll} />
             </div>
         </ConfigProvider>
     );

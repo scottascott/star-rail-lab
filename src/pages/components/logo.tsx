@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 const Logo = () => {
     return (
-        <div className="relative block">
+        <div className="relative block ">
             {/* svg path logo */}
-            <motion.svg xmlns="http://www.w3.org/2000/svg" className="absolute origin-top-left sm:scale-150">
+            <motion.svg xmlns="http://www.w3.org/2000/svg" className="absolute origin-top-left sm:scale-150 h-[50px]">
                 <motion.path
                     initial={{ pathLength: 0, fill: "rgba(255, 255, 255, 0)" }}
                     animate={{ pathLength: 1, fill: "#ffcd29" }}

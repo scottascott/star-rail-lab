@@ -26,6 +26,7 @@ body {
 
 .title {
     background-color: #ffcd29;
+    min-width: 200px;
 }
 
 .title h1 {

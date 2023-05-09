@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Input, Divider } from "antd";
-import { AudioOutlined } from "@ant-design/icons";
 
 import { dataIndex } from "./data/index";
 import { useState } from "react";
@@ -43,7 +42,7 @@ const CharacterChoose = (props: ChooseProps) => {
             <div className="title flex py-[20px] pl-[20px] pr-[60px] w-fit rounded-r-[50px] items-center mt-[60px] sm:mt-[80px]">
                 <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">Characters</h1>
                 <Search
-                    placeholder="input name to search"
+                    placeholder="enter name to search"
                     onChange={handleChange}
                     style={{ width: 200 }}
                 />
