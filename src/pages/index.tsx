@@ -1,5 +1,6 @@
 import styles from "./index.module.css";
 import { type NextPage } from "next";
+import { ConfigProvider, theme } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -9,7 +10,13 @@ import { useState } from "react";
 const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
     return (
-        <>
+        <ConfigProvider
+            theme={{
+                token: {
+                    colorPrimary: "#FF9900",
+                },
+            }}
+        >
             <Head>
                 <title>Honkai: Star Rail - Mini Lab</title>
                 <meta
@@ -19,11 +26,11 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
-                <div className="max-w-[1080px] mx-auto mt-[100px]">
-                    <CharacterChoose c={c} setC={setC}/>
+                <div className="max-w-[1080px] mx-auto pt-[100px]">
+                    <CharacterChoose c={c} setC={setC} />
                 </div>
             </div>
-        </>
+        </ConfigProvider>
     );
 };
 

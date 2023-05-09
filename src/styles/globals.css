@@ -2,19 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
-.Ubuntu{
-    font-family: 'Ubuntu', sans-serif;
+.Ubuntu {
+    font-family: "Ubuntu", sans-serif;
     font-weight: 300;
 }
 
-.UbuntuMedium{
-    font-family: 'Ubuntu', sans-serif;
+.UbuntuMedium {
+    font-family: "Ubuntu", sans-serif;
     font-weight: 500;
 }
 
-.UbuntuBold{
-    font-family: 'Ubuntu', sans-serif;
+.UbuntuBold {
+    font-family: "Ubuntu", sans-serif;
     font-weight: 700;
+}
+
+body {
+    background-color: #fff7df;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.title {
+    background-color: #ffcd29;
 }
