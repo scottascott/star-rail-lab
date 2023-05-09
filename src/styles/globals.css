@@ -27,3 +27,9 @@ body {
 .title {
     background-color: #ffcd29;
 }
+
+.title h1 {
+    margin: 0;
+    color: white;
+    font-weight: 700;
+}

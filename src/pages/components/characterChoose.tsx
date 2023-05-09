@@ -23,7 +23,8 @@ const CharacterChoose = (props: ChooseProps) => {
     };
     return (
         <>
-            <div className="title py-[20px] pl-[20px] pr-[60px] w-fit rounded-r-[50px]">
+            <div className="title flex py-[20px] pl-[20px] pr-[60px] w-fit rounded-r-[50px] items-center">
+                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">Characters</h1>
                 <Search
                     placeholder="input search text"
                     onChange={handleChange}
