@@ -1,11 +1,12 @@
 import styles from "./index.module.css";
 import { type NextPage } from "next";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider } from "antd";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 
 import CharacterChoose from "./components/characterChoose";
-import { useState } from "react";
+import Logo from "./components/logo";
 
 const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
@@ -25,10 +26,11 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div>
-                <div className="max-w-[1080px] mx-auto pt-[100px]">
-                    <CharacterChoose c={c} setC={setC} />
+            <div className="max-w-[1080px] mx-auto pt-[30px]">
+                <div className="pl-[20px] sm:pl-0 relative w-full">
+                    <Logo />
                 </div>
+                <CharacterChoose c={c} setC={setC} />
             </div>
         </ConfigProvider>
     );
