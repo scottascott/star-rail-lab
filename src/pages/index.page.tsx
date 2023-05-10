@@ -37,7 +37,7 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="max-w-[1080px] mx-auto pt-[30px] scroll-smooth">
+            <div className="max-w-[1080px] mx-auto pt-[30px]">
                 <div className="pl-[20px] sm:pl-0 relative w-full">
                     <Logo />
                 </div>

@@ -34,8 +34,10 @@ const CharacterChoose = (props: ChooseProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setDataShow(
-            dataIndex.filter((character) =>
-                character.name.toUpperCase().includes(value.toUpperCase())
+            dataIndex.filter(
+                (character) =>
+                    character.name.toUpperCase().includes(value.toUpperCase()) || //en
+                    t(character.name).includes(value) //cn
             )
         );
     };

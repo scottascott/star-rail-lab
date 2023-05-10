@@ -19,6 +19,10 @@
     font-weight: 700;
 }
 
+html {
+    scroll-behavior: smooth !important;
+}
+
 body {
     background-color: #fff7df;
     font-family: "Ubuntu", sans-serif;
