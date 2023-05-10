@@ -28,10 +28,17 @@ const CharacterShow = (props: ChooseProps) => {
                 return (
                     <>
                         {r.map((p: PriorityProps) => {
+                            const sub = p.name.trim().split(" ");
                             return (
-                                <div className="inline-block text-center w-fit">
-                                    <img src={p.img} alt=""></img>
-                                    <p>{p.name}</p>
+                                <div
+                                    key={p.name}
+                                    className="flex flex-row h-fit w-fit sm:flex-col sm:w-[120px] justify-evenly"
+                                >
+                                    <img className="w-[50px] sm:w-[60px]" src={p.img} alt=""></img>
+                                    <div className="flex text-[20px] items-center italic text-[#616161]">
+                                        <span className="text-black UbuntuBold">{sub[0]}</span>
+                                        -{sub[1]}
+                                    </div>
                                 </div>
                             );
                         })}
@@ -56,9 +63,11 @@ const CharacterShow = (props: ChooseProps) => {
             <div className="flex flex-wrap justify-center sm:justify-between">
                 <img className="-skew-y-6 w-[200px]" src={info.img} alt=""></img>
                 <div className="flex flex-col w-full sm:w-[750px] px-[20px] justify-end">
-                    <h2 className="text-[28px] UbuntuBold">{info.name}</h2>
+                    <h2 className="mt-[20px] text-center sm:text-left text-[28px] UbuntuBold">
+                        {info.name}
+                    </h2>
                     <Divider dashed />
-                    <div>{basic}</div>
+                    <div className="flex flex-col sm:flex-row">{basic}</div>
                 </div>
             </div>
         </motion.div>
