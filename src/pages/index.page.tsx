@@ -1,10 +1,13 @@
 import styles from "./index.module.css";
 import { type NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ConfigProvider } from "antd";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import i18nConfig from "next-i18next.config.mjs";
 
 import CharacterChoose from "./components/characterChoose";
 import CharacterShow from "./components/characterShow";
@@ -12,6 +15,7 @@ import Logo from "./components/logo";
 
 const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
+    const { t } = useTranslation("common");
     const router = useRouter();
     const setCAndRoll = (c: string | null) => {
         setC(c);
@@ -43,5 +47,11 @@ const Home: NextPage = () => {
         </ConfigProvider>
     );
 };
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+    props: {
+        ...(await serverSideTranslations(locale, ["common"], i18nConfig, ["en", "cn"])),
+    },
+});
 
 export default Home;

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
-import { dataList } from "./data/allList";
+import dataList from "./data/allList";
 import { Divider } from "antd";
 
 interface ChooseProps {
@@ -13,11 +13,13 @@ interface PriorityProps {
     img: string;
     name: string;
 }
+
 const CharacterShow = (props: ChooseProps) => {
     const { c } = props;
-    const [info, setInfo] = useState<any>(null);
+    type InfoType = (typeof dataList)[0];
+    const [info, setInfo] = useState<InfoType | null>(null);
     useEffect(() => {
-        const r = dataList.find((character) => character.name == c);
+        const r = dataList.find((character) => character.name == c) || null;
         console.log(r);
         setInfo(r);
     }, [c]);
@@ -36,8 +38,8 @@ const CharacterShow = (props: ChooseProps) => {
                                 >
                                     <img className="w-[50px] sm:w-[60px]" src={p.img} alt=""></img>
                                     <div className="flex text-[20px] items-center italic text-[#616161]">
-                                        <span className="text-black UbuntuBold">{sub[0]}</span>
-                                        -{sub[1]}
+                                        <span className="text-black UbuntuBold">{sub[0]}</span>-
+                                        {sub[1]}
                                     </div>
                                 </div>
                             );

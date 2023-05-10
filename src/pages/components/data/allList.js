@@ -2489,4 +2489,4 @@ const dataList = [
     },
 ];
 
-export { dataList };
+export default  dataList ;

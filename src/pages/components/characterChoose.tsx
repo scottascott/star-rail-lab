@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Input, Divider } from "antd";
 
-import { dataIndex } from "./data/index";
+import dataIndex from "./data/index";
 import { useState } from "react";
 
 const { Search } = Input;

@@ -141,4 +141,4 @@ const dataIndex=[
     }
 ]
 
-export {dataIndex}
+export default dataIndex
