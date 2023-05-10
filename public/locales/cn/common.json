@@ -1,4 +1,37 @@
 {
-    "a": "啊",
-    "b": "吧"
+    "title": "崩铁-迷你库",
+    "Characters": "角色",
+    "Basic": "基础",
+
+
+    "Tingyun": "停云",
+    "Qingque": "青雀",
+    "Luocha": "罗刹",
+    "Trailblazer (Fire)": "开拓者 (火)",
+    "Trailblazer (Physical)": "开拓者 (物理)",
+    "Yanqing": "彦卿",
+    "Bailu": "白露",
+    "Blade": "刃",
+    "Sushang": "素裳",
+    "Arlan": "阿兰",
+    "Herta": "黑塔",
+    "Silver Wolf": "银狼",
+    "Jing Yuan": "景元",
+    "Kafka": "卡夫卡",
+    "Sampo": "桑博",
+    "Hook": "虎克",
+    "Serval": "希露瓦",
+    "Natasha": "娜塔莎",
+    "Bronya": "布洛妮娅",
+    "Pela": "佩拉",
+    "Asta": "艾丝妲",
+    "Clara": "克拉拉",
+    "Seele": "希儿",
+    "Gepard": "杰帕德",
+    "March 7th": "三月七",
+    "Dan Heng": "丹恒",
+    "Welt": "瓦尔特",
+    "Himeko": "姬子",
+    
+    "test":""
 }

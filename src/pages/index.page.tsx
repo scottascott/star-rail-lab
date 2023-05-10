@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             }}
         >
             <Head>
-                <title>Honkai: Star Rail - Mini Lab</title>
+                <title>{t("title")}</title>
                 <meta
                     name="description"
                     content="Honkai: Star Rail Mini Labserves as a streamlined and user-friendly web application designed to facilitate access to essential data pertaining to fundamental statistics, Eidolons, Abilities, level up prioritization, and team-related details of a character within the Honkai: Star Rail game."
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                 <div className="pl-[20px] sm:pl-0 relative w-full">
                     <Logo />
                 </div>
-                <CharacterChoose c={c} setC={setCAndRoll} />
+                <CharacterChoose c={c} setC={setCAndRoll} t={t} />
                 <CharacterShow c={c} setC={setCAndRoll} />
             </div>
         </ConfigProvider>

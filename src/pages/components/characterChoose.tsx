@@ -8,6 +8,7 @@ const { Search } = Input;
 interface ChooseProps {
     c: string | null;
     setC: (c: string | null) => void;
+    t: (x: string) => string;
 }
 
 const container = {
@@ -28,6 +29,7 @@ const item = {
 };
 
 const CharacterChoose = (props: ChooseProps) => {
+    const { t } = props;
     const [dataShow, setDataShow] = useState(dataIndex);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
@@ -40,7 +42,9 @@ const CharacterChoose = (props: ChooseProps) => {
     return (
         <>
             <div className="title flex py-[20px] pl-[20px] pr-[60px] w-fit rounded-r-[50px] items-center mt-[60px] sm:mt-[80px]">
-                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">Characters</h1>
+                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
+                    {t("Characters")}
+                </h1>
                 <Search
                     placeholder="enter name to search"
                     onChange={handleChange}
@@ -77,7 +81,7 @@ const CharacterChoose = (props: ChooseProps) => {
                                 props.c == character.name ? "UbuntuBold" : "UbuntuMedium"
                             }`}
                         >
-                            {character.name}
+                            {t(character.name)}
                         </p>
                     </motion.li>
                 ))}
