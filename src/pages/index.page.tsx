@@ -24,7 +24,10 @@ const Home: NextPage = () => {
         router.push("#detail");
     };
     const changeLang = () => {
-        router.push(router.asPath, undefined, { locale: locale == "cn" ? "en" : "cn" });
+        router.push('/', '/', {
+            locale: locale == "cn" ? "en" : "cn",
+            scroll: false,
+        });
     };
     return (
         <ConfigProvider
@@ -56,7 +59,7 @@ const Home: NextPage = () => {
                     <CharacterShow c={c} setC={setCAndRoll} />
                 </div>
             </div>
-            <FloatButton.BackTop icon={<SmileOutlined/>} type="primary"/>
+            <FloatButton.BackTop icon={<SmileOutlined />} type="primary" />
         </ConfigProvider>
     );
 };
