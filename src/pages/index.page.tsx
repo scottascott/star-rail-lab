@@ -2,11 +2,12 @@ import styles from "./index.module.css";
 import { type NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, FloatButton } from "antd";
+import { SmileOutlined } from "@ant-design/icons";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import i18nConfig from "next-i18next.config.mjs";
 
 import CharacterChoose from "./components/characterChoose";
@@ -17,15 +18,19 @@ const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
     const { t } = useTranslation("common");
     const router = useRouter();
+    const { locale } = router;
     const setCAndRoll = (c: string | null) => {
         setC(c);
-        router.push("/#detail_info");
+        router.push("#detail");
+    };
+    const changeLang = () => {
+        router.push(router.asPath, undefined, { locale: locale == "cn" ? "en" : "cn" });
     };
     return (
         <ConfigProvider
             theme={{
                 token: {
-                    colorPrimary: "#FF9900",
+                    colorPrimary: "#ffcd29",
                 },
             }}
         >
@@ -38,12 +43,20 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="max-w-[1080px] mx-auto pt-[30px]">
-                <div className="pl-[20px] sm:pl-0 relative w-full">
+                <div className="px-[20px] sm:px-[30px] relative w-full">
                     <Logo />
+                    <div className="w-full text-right pt-[8px] sm:pt-[20px] cursor-pointer">
+                        <div className="UbuntuShadow" onClick={changeLang}>
+                            文<sub>A</sub>
+                        </div>
+                    </div>
                 </div>
                 <CharacterChoose c={c} setC={setCAndRoll} t={t} />
-                <CharacterShow c={c} setC={setCAndRoll} />
+                <div id="detail">
+                    <CharacterShow c={c} setC={setCAndRoll} />
+                </div>
             </div>
+            <FloatButton.BackTop icon={<SmileOutlined/>} type="primary"/>
         </ConfigProvider>
     );
 };

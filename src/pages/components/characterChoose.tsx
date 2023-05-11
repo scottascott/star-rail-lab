@@ -43,12 +43,12 @@ const CharacterChoose = (props: ChooseProps) => {
     };
     return (
         <>
-            <div className="title flex py-[20px] pl-[20px] pr-[60px] w-fit rounded-r-[50px] items-center mt-[60px] sm:mt-[80px]">
+            <div className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px] mt-[40px] sm:mt-[50px]">
                 <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
                     {t("Characters")}
                 </h1>
                 <Search
-                    placeholder="enter name to search"
+                    placeholder="Enter name to search"
                     onChange={handleChange}
                     style={{ width: 200 }}
                 />
@@ -72,7 +72,7 @@ const CharacterChoose = (props: ChooseProps) => {
                         variants={item}
                     >
                         <img
-                            className={`w-[64px] sm:w-[80px] mx-auto ${
+                            className={`w-[64px] sm:w-[80px] mx-auto shadow-xl ${
                                 props.c == character.name ? "opacity-100" : "opacity-30"
                             }`}
                             src={character.img}
