@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
     font-family: "Ubuntu";
     src: url("/assets/fonts/Ubuntu-Regular.ttf");
@@ -68,4 +67,10 @@ body {
     margin: 0;
     color: white;
     font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        scroll-margin-top: 100px !important;
+    }
 }

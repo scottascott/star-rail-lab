@@ -1,7 +1,8 @@
 {
     "title": "崩铁-迷你库",
-    "Characters": "角色",
-    "Basic": "基础",
+    "Characters": "选择角色",
+    "Basic": "基础信息",
+    "Team": "配队推荐",
 
     "HP":"生命",
     "DEF":"防御",
@@ -10,9 +11,10 @@
     "TAUNT":"嘲讽",
 
     "Abilities Priority":"行迹优先度",
-    "Eidolons Priority":"命座优先度",
+    "Eidolons Priority":"星魂优先度",
 
     "Currently No Data":"暂无数据",
+    "Enter name to search":"输入名字搜索",
 
     "Tingyun": "停云",
     "Qingque": "青雀",

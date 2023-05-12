@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { RightOutlined } from "@ant-design/icons";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
     ssr: false,
@@ -19,6 +19,26 @@ interface PriorityProps {
     img: string;
     name: string;
 }
+
+interface TeamMemberProps {
+    img: string;
+    name: string;
+    icon: string;
+    des: string;
+}
+
+const basicVariants: Variants = {
+    offscreen: {
+        opacity: 0.5,
+    },
+    onscreen: {
+        opacity: 1,
+        // transition: {
+        //     type: "spring",
+        //     bounce: 0.4,
+        // },
+    },
+};
 
 const CharacterShow = (props: ChooseProps) => {
     const { c, t } = props;
@@ -147,7 +167,10 @@ const CharacterShow = (props: ChooseProps) => {
             transition={{ duration: 1 }}
         >
             {/* basic */}
-            <div className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit rounded-l-[20px] items-center mt-[40px]">
+            <div
+                className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit rounded-l-[20px] items-center mt-[40px]"
+                id="detail"
+            >
                 <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">{t("Basic")}</h1>
             </div>
             <Divider />
@@ -162,20 +185,57 @@ const CharacterShow = (props: ChooseProps) => {
                         {t(info.name)}
                     </h2>
                     <Divider dashed />
-                    <div className="flex flex-col sm:flex-row">{basic}</div>
+
+                    <motion.div
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ amount: 0.8 }}
+                        variants={basicVariants}
+                        className="flex flex-col sm:flex-row"
+                    >
+                        {basic}
+                    </motion.div>
                     <Divider dashed />
+                    {/* piority */}
                     <h2 className="px-[5px] mb-[40px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
                         {t("Abilities Priority")}
                     </h2>
-                    <div className="flex flex-row flex-wrap w-fit">{piorityAbilitiesShow}</div>
+
+                    <motion.div
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ amount: 0.8 }}
+                        variants={basicVariants}
+                        className="flex flex-row flex-wrap w-fit"
+                    >
+                        {piorityAbilitiesShow}
+                    </motion.div>
                     <Divider dashed />
+                    {/* piority2 */}
                     <h2 className="px-[5px] mb-[40px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
                         {t("Eidolons Priority")}
                     </h2>
-                    <div className="flex flex-row flex-wrap w-fit">{piorityEidolonsShow}</div>
+
+                    <motion.div
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ amount: 0.8 }}
+                        variants={basicVariants}
+                        className="flex flex-row flex-wrap w-fit"
+                    >
+                        {piorityEidolonsShow}
+                    </motion.div>
                 </div>
             </div>
-            {/* piority */}
+            {/* teamMates */}
+            <div
+                className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit rounded-l-[20px] items-center mt-[40px]"
+                id="team"
+            >
+                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">{t("Team")}</h1>
+            </div>
+            <Divider />
+            <div className="flex flex-wrap justify-center sm:justify-between"></div>
         </motion.div>
     ) : (
         <></>

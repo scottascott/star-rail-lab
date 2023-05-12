@@ -43,12 +43,12 @@ const CharacterChoose = (props: ChooseProps) => {
     };
     return (
         <>
-            <div className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px] mt-[40px] sm:mt-[50px]">
+            <div className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px]" id="choose">
                 <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
                     {t("Characters")}
                 </h1>
                 <Search
-                    placeholder="Enter name to search"
+                    placeholder={t("Enter name to search")}
                     onChange={handleChange}
                     style={{ width: 200 }}
                 />

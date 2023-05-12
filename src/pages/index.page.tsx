@@ -45,19 +45,21 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="max-w-[1080px] mx-auto pt-[30px]">
-                <div className="px-[20px] sm:px-[30px] relative w-full">
+            <div className="max-w-[1080px] mx-auto">
+                {/* header */}
+                <div className="px-[20px] sm:px-[30px] w-full pt-[30px] pb-[30px] fixed sm:relative bg-[#fff7df] z-50 border-b-[1px] sm:border-0 border-[#ffcd29]">
                     <Logo />
-                    <div className="w-full text-right pt-[8px] sm:pt-[20px] cursor-pointer">
+                    <div className="w-full text-right pt-[4px] sm:pt-[20px] cursor-pointer">
                         <div className="UbuntuShadow" onClick={changeLang}>
                             文<sub>A</sub>
                         </div>
                     </div>
                 </div>
-                <CharacterChoose c={c} setC={setCAndRoll} t={t} />
-                <div id="detail">
-                    <CharacterShow c={c} setC={setCAndRoll} t={t} />
+                {/* content */}
+                <div className="pt-[100px] sm:pt-0">
+                    <CharacterChoose c={c} setC={setCAndRoll} t={t} />
                 </div>
+                <CharacterShow c={c} setC={setCAndRoll} t={t} />
             </div>
             <FloatButton.BackTop icon={<SmileOutlined />} type="primary" />
         </ConfigProvider>
