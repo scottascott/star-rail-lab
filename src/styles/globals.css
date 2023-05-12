@@ -2,20 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@1000&family=Ubuntu:wght@300;500;700&display=swap");
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("/assets/fonts/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+    font-family: "UbuntuBold";
+    src: url("/assets/fonts/Ubuntu-Bold.ttf");
+}
+
+@font-face {
+    font-family: "UbuntuMedium";
+    src: url("/assets/fonts/Ubuntu-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Teko";
+    src: url("/assets/fonts/Teko-Medium.ttf");
+}
+
+.Teko {
+    font-family: "Teko";
+}
 
 .Ubuntu {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
+    font-family: "Ubuntu";
 }
 
 .UbuntuMedium {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "UbuntuMedium";
     font-weight: 500;
 }
 
 .UbuntuBold {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "UbuntuBold";
     font-weight: 700;
 }
 
@@ -23,14 +45,10 @@
     width: fit-content;
     padding: 0 20px;
     display: inline-block;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu";
     color: #ffcd29;
     text-shadow: 2px 2px #616161;
     font-weight: 700;
-}
-
-.Nunito {
-    font-family: "Nunito", sans-serif;
 }
 
 html {
@@ -39,7 +57,7 @@ html {
 
 body {
     background-color: #fff7df;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu";
 }
 
 .title {

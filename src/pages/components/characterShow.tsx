@@ -26,13 +26,12 @@ const CharacterShow = (props: ChooseProps) => {
     const [info, setInfo] = useState<InfoType | null>(null);
     useEffect(() => {
         const r = dataList.find((character) => character.name == c) || null;
-        console.log(r);
         setInfo(r);
     }, [c]);
     const basic = useMemo(() => {
         if (info && info.priority) {
             const r = info.priority.filter((p: PriorityProps) => p.cat == "Stats");
-            if (r) {
+            if (r && r.length > 0) {
                 return (
                     <>
                         {r.map((p: PriorityProps) => {
@@ -47,12 +46,16 @@ const CharacterShow = (props: ChooseProps) => {
                                         src={p.img}
                                         alt=""
                                     ></img>
-                                    <div className="flex text-[20px] items-center italic text-[#616161] sm:justify-center">
-                                        <span className="text-black UbuntuBold mr-[5px]">
+                                    <div className="flex text-[20px] items-center text-[#616161] sm:justify-center">
+                                        <span className="text-black italic UbuntuBold mr-[5px]">
                                             {t(sub[0] || "")}
                                         </span>
-                                        {"- "}
-                                        <AnimatedNumbers animateToNumber={Number(sub[1])||0}></AnimatedNumbers>
+                                        {"-"}
+                                        <span className="Teko text-[25px] ml-[5px]">
+                                            <AnimatedNumbers
+                                                animateToNumber={Number(sub[1]) || 0}
+                                            ></AnimatedNumbers>
+                                        </span>
                                     </div>
                                 </div>
                             );
@@ -61,12 +64,12 @@ const CharacterShow = (props: ChooseProps) => {
                 );
             }
         }
-        return <></>;
+        return <>{t("Currently No Data")}</>;
     }, [info, t]);
     const piorityAbilitiesShow = useMemo(() => {
         if (info && info.priority) {
             const r = info.priority.filter((p: PriorityProps) => p.cat == "Abilities");
-            if (r) {
+            if (r && r.length > 0) {
                 return (
                     <>
                         {r.map((p: PriorityProps, index) => {
@@ -77,7 +80,9 @@ const CharacterShow = (props: ChooseProps) => {
                                         className="px-[20px] flex flex-row h-fit w-fit sm:flex-col sm:min-w-[120px] justify-evenly"
                                     >
                                         <img
-                                            className={`mx-auto w-[50px] sm:w-[60px] ${p.name=="Ultiimate"?"animate-spin":""}`}
+                                            className={`mx-auto w-[50px] sm:w-[60px] ${
+                                                p.name == "Ultiimate" ? "animate-spin" : ""
+                                            }`}
                                             src={p.img}
                                             alt=""
                                         ></img>
@@ -97,12 +102,12 @@ const CharacterShow = (props: ChooseProps) => {
                 );
             }
         }
-        return <></>;
+        return <>{t("Currently No Data")}</>;
     }, [info, t]);
     const piorityEidolonsShow = useMemo(() => {
         if (info && info.priority) {
             const r = info.priority.filter((p: PriorityProps) => p.cat == "Eidolons");
-            if (r) {
+            if (r && r.length > 0) {
                 return (
                     <>
                         {r.map((p: PriorityProps, index) => {
@@ -133,7 +138,7 @@ const CharacterShow = (props: ChooseProps) => {
                 );
             }
         }
-        return <></>;
+        return <>{t("Currently No Data")}</>;
     }, [info, t]);
     return info ? (
         <motion.div

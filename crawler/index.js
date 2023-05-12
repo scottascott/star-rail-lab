@@ -115,7 +115,6 @@ const crawSinglePage = (img,name,href) => {
                 team
             }
 
-            // console.log(finalResult);
             ws.write(JSON.stringify(finalResult)+",");
         });
     });
