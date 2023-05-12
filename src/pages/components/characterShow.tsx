@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { RightOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+    ssr: false,
+});
 
 import dataList from "./data/allList";
 import { Divider } from "antd";
@@ -47,7 +51,8 @@ const CharacterShow = (props: ChooseProps) => {
                                         <span className="text-black UbuntuBold mr-[5px]">
                                             {t(sub[0] || "")}
                                         </span>
-                                        {'- '}{sub[1]}
+                                        {"- "}
+                                        <AnimatedNumbers animateToNumber={Number(sub[1])||0}></AnimatedNumbers>
                                     </div>
                                 </div>
                             );
@@ -69,14 +74,14 @@ const CharacterShow = (props: ChooseProps) => {
                                 <>
                                     <div
                                         key={p.name}
-                                        className="pl-[20px] flex flex-row h-fit w-fit sm:flex-col sm:min-w-[120px] justify-evenly"
+                                        className="px-[20px] flex flex-row h-fit w-fit sm:flex-col sm:min-w-[120px] justify-evenly"
                                     >
                                         <img
-                                            className="mx-auto w-[50px] sm:w-[60px]"
+                                            className={`mx-auto w-[50px] sm:w-[60px] ${p.name=="Ultiimate"?"animate-spin":""}`}
                                             src={p.img}
                                             alt=""
                                         ></img>
-                                        <div className="flex text-[20px] items-center italic text-[#616161] sm:justify-center">
+                                        <div className="ml-[10px] sm:ml-0 flex text-[20px] items-center italic text-[#616161] sm:justify-center">
                                             <span className="text-black UbuntuBold">
                                                 {t(p.name)}
                                             </span>
@@ -105,14 +110,14 @@ const CharacterShow = (props: ChooseProps) => {
                                 <>
                                     <div
                                         key={p.name}
-                                        className="pl-[20px] flex flex-row h-fit w-fit sm:flex-col sm:min-w-[120px] justify-evenly"
+                                        className="px-[20px] flex flex-row h-fit w-fit sm:flex-col sm:min-w-[120px] justify-evenly"
                                     >
                                         <img
                                             className="mx-auto w-[50px] sm:w-[60px]"
                                             src={p.img}
                                             alt=""
                                         ></img>
-                                        <div className="flex text-[20px] items-center italic text-[#616161] sm:justify-center">
+                                        <div className="ml-[10px] sm:ml-0 flex text-[20px] items-center italic text-[#616161] sm:justify-center">
                                             <span className="text-black UbuntuBold">
                                                 {t(p.name)}
                                             </span>
@@ -154,15 +159,15 @@ const CharacterShow = (props: ChooseProps) => {
                     <Divider dashed />
                     <div className="flex flex-col sm:flex-row">{basic}</div>
                     <Divider dashed />
-                    <h2 className="px-[5px] mb-[20px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
+                    <h2 className="px-[5px] mb-[40px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
                         {t("Abilities Priority")}
                     </h2>
-                    <div className="flex flex-col sm:flex-row">{piorityAbilitiesShow}</div>
+                    <div className="flex flex-row flex-wrap w-fit">{piorityAbilitiesShow}</div>
                     <Divider dashed />
-                    <h2 className="px-[5px] mb-[20px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
+                    <h2 className="px-[5px] mb-[40px] mx-auto sm:ml-[16px] w-fit text-[24px] UbuntuBold tracking-wide text-[#616161]">
                         {t("Eidolons Priority")}
                     </h2>
-                    <div className="flex flex-col sm:flex-row">{piorityEidolonsShow}</div>
+                    <div className="flex flex-row flex-wrap w-fit">{piorityEidolonsShow}</div>
                 </div>
             </div>
             {/* piority */}
