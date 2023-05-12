@@ -3,6 +3,15 @@
     "Characters": "角色",
     "Basic": "基础",
 
+    "HP":"生命",
+    "DEF":"防御",
+    "ATK":"攻击",
+    "SPD":"速度",
+    "TAUNT":"嘲讽",
+
+    "Abilities Priority":"行迹优先度",
+    "Eidolons Priority":"命座优先度",
+
 
     "Tingyun": "停云",
     "Qingque": "青雀",
@@ -32,6 +41,11 @@
     "Dan Heng": "丹恒",
     "Welt": "瓦尔特",
     "Himeko": "姬子",
+    
+    "Ultiimate": "大招",
+    "Skill": "战技",
+    "Talent": "天赋",
+    "Normal Atk": "普攻",
     
     "test":""
 }
