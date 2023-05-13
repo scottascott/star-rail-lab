@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { RightOutlined } from "@ant-design/icons";
+import { RightOutlined, BarChartOutlined , UsergroupAddOutlined } from "@ant-design/icons";
 import { motion, Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
@@ -192,7 +192,7 @@ const CharacterShow = (props: ChooseProps) => {
                             id="team"
                         >
                             <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
-                                {t("Team")}
+                                <UsergroupAddOutlined /> {t("Team")}
                             </h1>
                         </div>
                         <Divider />
@@ -253,7 +253,9 @@ const CharacterShow = (props: ChooseProps) => {
                 className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit rounded-l-[20px] items-center mt-[40px]"
                 id="detail"
             >
-                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">{t("Basic")}</h1>
+                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
+                    <BarChartOutlined  /> {t("Basic")}
+                </h1>
             </div>
             <Divider />
             <div className="flex flex-wrap justify-center sm:justify-between">

@@ -3,9 +3,13 @@ import { type NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ConfigProvider, FloatButton } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
+import {
+    EllipsisOutlined,
+    BarChartOutlined ,
+    UserSwitchOutlined,
+    UsergroupAddOutlined,
+} from "@ant-design/icons";
 import Head from "next/head";
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import i18nConfig from "next-i18next.config.mjs";
@@ -13,6 +17,7 @@ import i18nConfig from "next-i18next.config.mjs";
 import CharacterChoose from "./components/characterChoose";
 import CharacterShow from "./components/characterShow";
 import Logo from "./components/logo";
+import Footer from "./components/footer";
 
 const Home: NextPage = () => {
     const [c, setC] = useState<string | null>(null);
@@ -53,6 +58,7 @@ const Home: NextPage = () => {
                         <div className="UbuntuShadow" onClick={changeLang}>
                             文<sub>A</sub>
                         </div>
+                        <div className="UbuntuShadow">{t("About")}</div>
                     </div>
                 </div>
                 {/* content */}
@@ -60,8 +66,37 @@ const Home: NextPage = () => {
                     <CharacterChoose c={c} setC={setCAndRoll} t={t} />
                 </div>
                 <CharacterShow c={c} setC={setCAndRoll} t={t} />
+                {/* footer */}
+                <Footer />
             </div>
-            <FloatButton.BackTop icon={<SmileOutlined />} type="primary" />
+            {/* float button */}
+            {c && (
+                <FloatButton.Group
+                    trigger="click"
+                    type="primary"
+                    style={{ right: 24 }}
+                    icon={<EllipsisOutlined />}
+                >
+                    <FloatButton
+                        icon={<UserSwitchOutlined />}
+                        onClick={() => {
+                            router.push("#choose");
+                        }}
+                    />
+                    <FloatButton
+                        icon={<BarChartOutlined  />}
+                        onClick={() => {
+                            router.push("#detail");
+                        }}
+                    />
+                    <FloatButton
+                        icon={<UsergroupAddOutlined />}
+                        onClick={() => {
+                            router.push("#team");
+                        }}
+                    />
+                </FloatButton.Group>
+            )}
         </ConfigProvider>
     );
 };

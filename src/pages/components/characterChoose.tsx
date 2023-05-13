@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Input, Divider } from "antd";
+import { UserSwitchOutlined } from "@ant-design/icons";
 
 import dataIndex from "./data/index";
 import { useState } from "react";
@@ -43,9 +44,12 @@ const CharacterChoose = (props: ChooseProps) => {
     };
     return (
         <>
-            <div className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px]" id="choose">
+            <div
+                className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px]"
+                id="choose"
+            >
                 <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
-                    {t("Characters")}
+                    <UserSwitchOutlined/>{" "}{t("Characters")}
                 </h1>
                 <Search
                     placeholder={t("Enter name to search")}

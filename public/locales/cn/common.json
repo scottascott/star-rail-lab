@@ -1,8 +1,9 @@
 {
     "title": "崩铁-迷你库",
-    "Characters": "选择角色",
+    "Characters": "角色",
     "Basic": "基础信息",
     "Team": "配队推荐",
+    "About": "关于",
 
     "HP":"生命",
     "DEF":"防御",
