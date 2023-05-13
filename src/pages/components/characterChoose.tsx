@@ -48,7 +48,7 @@ const CharacterChoose = (props: ChooseProps) => {
                 className="title bg-gradient-to-r from-[#ffcd29] flex ml-[10px] py-[10px] sm:py-[20px] pl-[20px] pr-[60px] w-fit items-center rounded-l-[20px]"
                 id="choose"
             >
-                <h1 className="inline-block !mr-[20px] text-[16px] sm:text-[20px]">
+                <h1 className="inline-block truncate !mr-[20px] text-[16px] sm:text-[20px]">
                     <UserSwitchOutlined/>{" "}{t("Characters")}
                 </h1>
                 <Search

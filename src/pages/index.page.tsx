@@ -54,11 +54,11 @@ const Home: NextPage = () => {
                 {/* header */}
                 <div className="px-[20px] sm:px-[30px] w-full pt-[30px] pb-[30px] fixed sm:relative bg-[#fff7df] z-50 border-b-[1px] sm:border-0 border-[#ffcd29]">
                     <Logo />
-                    <div className="w-full text-right pt-[4px] sm:pt-[20px] cursor-pointer">
-                        <div className="UbuntuShadow" onClick={changeLang}>
+                    <div className="w-full text-right pt-[4px] sm:pt-[20px]">
+                        <div className="cursor-pointer UbuntuShadow" onClick={changeLang}>
                             文<sub>A</sub>
                         </div>
-                        <div className="UbuntuShadow">{t("About")}</div>
+                        <div className="cursor-pointer UbuntuShadow">{t("About")}</div>
                     </div>
                 </div>
                 {/* content */}
