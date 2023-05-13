@@ -74,3 +74,12 @@ body {
         scroll-margin-top: 100px !important;
     }
 }
+
+/* custom antd style */
+.ant-modal-content {
+    border-radius: 30px !important;
+    padding: 0 !important;
+}
+.ant-btn-primary {
+    background-color: #ffcd29 !important;
+}

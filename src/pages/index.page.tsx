@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ConfigProvider, FloatButton } from "antd";
 import {
     EllipsisOutlined,
-    BarChartOutlined ,
+    BarChartOutlined,
     UserSwitchOutlined,
     UsergroupAddOutlined,
 } from "@ant-design/icons";
@@ -17,6 +17,7 @@ import i18nConfig from "next-i18next.config.mjs";
 import CharacterChoose from "./components/characterChoose";
 import CharacterShow from "./components/characterShow";
 import Logo from "./components/logo";
+import About from "./components/about";
 import Footer from "./components/footer";
 
 const Home: NextPage = () => {
@@ -34,6 +35,18 @@ const Home: NextPage = () => {
             scroll: false,
         });
     };
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
+
     return (
         <ConfigProvider
             theme={{
@@ -56,9 +69,19 @@ const Home: NextPage = () => {
                     <Logo />
                     <div className="w-full text-right pt-[4px] sm:pt-[20px]">
                         <div className="cursor-pointer UbuntuShadow" onClick={changeLang}>
-                            文<sub>A</sub>
+                            {locale == "cn" ? (
+                                <>
+                                    文<sub>A</sub>
+                                </>
+                            ) : (
+                                <>
+                                    A<sub>文</sub>
+                                </>
+                            )}
                         </div>
-                        <div className="cursor-pointer UbuntuShadow">{t("About")}</div>
+                        <div className="cursor-pointer UbuntuShadow" onClick={showModal}>
+                            {t("About")}
+                        </div>
                     </div>
                 </div>
                 {/* content */}
@@ -84,7 +107,7 @@ const Home: NextPage = () => {
                         }}
                     />
                     <FloatButton
-                        icon={<BarChartOutlined  />}
+                        icon={<BarChartOutlined />}
                         onClick={() => {
                             router.push("#detail");
                         }}
@@ -97,6 +120,7 @@ const Home: NextPage = () => {
                     />
                 </FloatButton.Group>
             )}
+            <About isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} t={t}/>
         </ConfigProvider>
     );
 };

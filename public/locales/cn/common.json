@@ -5,17 +5,17 @@
     "Team": "配队推荐",
     "About": "关于",
 
-    "HP":"生命",
-    "DEF":"防御",
-    "ATK":"攻击",
-    "SPD":"速度",
-    "TAUNT":"嘲讽",
+    "HP": "生命",
+    "DEF": "防御",
+    "ATK": "攻击",
+    "SPD": "速度",
+    "TAUNT": "嘲讽",
 
-    "Abilities Priority":"行迹优先度",
-    "Eidolons Priority":"星魂优先度",
+    "Abilities Priority": "行迹优先度",
+    "Eidolons Priority": "星魂优先度",
 
-    "Currently No Data":"暂无数据",
-    "Enter name to search":"输入名字搜索",
+    "Currently No Data": "暂无数据",
+    "Enter name to search": "输入名字搜索",
 
     "Tingyun": "停云",
     "Qingque": "青雀",
@@ -45,11 +45,14 @@
     "Dan Heng": "丹恒",
     "Welt": "瓦尔特",
     "Himeko": "姬子",
-    
+
     "Ultiimate": "大招",
     "Skill": "战技",
     "Talent": "天赋",
     "Normal Atk": "普攻",
-    
-    "test":""
+
+    "Creator": "作者",
+    "Release date":"发布时间",
+
+    "test": ""
 }
