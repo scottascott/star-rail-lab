@@ -33,10 +33,30 @@ const basicVariants: Variants = {
     },
     onscreen: {
         opacity: 1,
-        // transition: {
-        //     type: "spring",
-        //     bounce: 0.4,
-        // },
+    },
+};
+
+const teamVariants: Variants = {
+    offscreen: {
+        y: 30,
+        opacity: 0.5,
+    },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            bounce: 0.4,
+        },
+    },
+};
+
+const avatorVariants: Variants = {
+    offscreen: {
+        scale: 0.5,
+    },
+    onscreen: {
+        scale: 1,
     },
 };
 
@@ -180,7 +200,11 @@ const CharacterShow = (props: ChooseProps) => {
                             {r.map((p: TeamMemberProps, index) => {
                                 return (
                                     // card
-                                    <div
+                                    <motion.div
+                                        initial="offscreen"
+                                        whileInView="onscreen"
+                                        viewport={{}}
+                                        variants={teamVariants}
                                         key={index}
                                         className="relative mt-[80px] rounded-[20px] px-[20px] py-[30px] shadow-md w-full h-fit sm:min-h-[160px] outline outline-1 outline-[#ffcd29]"
                                     >
@@ -208,7 +232,7 @@ const CharacterShow = (props: ChooseProps) => {
                                         <div className="pt-[30px] sm:pt-0 sm:pl-[160px]">
                                             <p>{t(p.des)}</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 );
                             })}
                         </div>
@@ -233,11 +257,14 @@ const CharacterShow = (props: ChooseProps) => {
             </div>
             <Divider />
             <div className="flex flex-wrap justify-center sm:justify-between">
-                <img
-                    className="-skew-y-6 drop-shadow-2xl w-[200px] h-fit sm:mt-[30px] ml-0 sm:ml-[30px]"
-                    src={info.img}
-                    alt=""
-                ></img>
+                {/* avator */}
+                <motion.div initial="offscreen" whileInView="onscreen" variants={avatorVariants}>
+                    <img
+                        className="-skew-y-6 drop-shadow-2xl w-[200px] h-fit sm:mt-[30px] ml-0 sm:ml-[30px]"
+                        src={info.img}
+                        alt=""
+                    ></img>
+                </motion.div>
                 <div className="flex flex-col w-full sm:w-[750px] px-[20px] justify-end">
                     <h2 className="px-[5px] mt-[50px] sm:mt-[30px] mx-auto sm:ml-[20px] w-fit text-[28px] UbuntuBold tracking-wide border-y-[2px] border-[#ffcd29] text-[#ffcd29]">
                         {t(info.name)}
